@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
+      const {user, logout} = useContext(AuthContext)
       return (
             <div className="navbar bg-[#DADBDD]">
             <div className="navbar-start">
@@ -27,8 +29,16 @@ const Navbar = () => {
                   <li>
                     <a>All Campaign</a>
                   </li>
-                  <li><a>Add New Campaign</a></li>
-                  <li><a>My Donation</a></li>
+                  {
+                        user?
+                         <>
+                         <li><a>Add New Campaign</a></li>
+                         <li><a>My Donation</a></li>
+                         </> 
+                         : 
+                         ""
+                  }
+                  
                 </ul>
               </div>
               <a className="btn btn-ghost text-xl">daisyUI</a>
@@ -39,13 +49,26 @@ const Navbar = () => {
                 <li>
                   <a >All Campaign</a>
                 </li>
-                <li><a>Add New Campaign</a></li>
-                <li><a>My Donation</a></li>
+                {
+                        user?
+                         <>
+                         <li><a>Add New Campaign</a></li>
+                         <li><a>My Donation</a></li>
+                         </> 
+                         : 
+                         ""
+                  }
               </ul>
             </div>
             <div className="navbar-end space-x-2">
-              <Link to='/login'><a className="btn">Login</a></Link>
-              <a className='btn'>Logout</a>
+            {
+                        user?
+                         <>
+                         <a onClick={logout} className='btn'>Logout</a>
+                         </> 
+                         : 
+                         <> <Link to='/login'><a className="btn">Login</a></Link></>
+                  }
             </div>
           </div>
       );
