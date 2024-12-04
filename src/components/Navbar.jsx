@@ -1,9 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
       const {user, logout} = useContext(AuthContext)
+      const navigate = useNavigate()
+      const handleLogout = ()=>{
+            logout()
+            navigate('/')
+      }
       return (
             <div className="navbar bg-[#DADBDD]">
             <div className="navbar-start">
@@ -25,15 +30,16 @@ const Navbar = () => {
                 <ul
                   tabIndex={0}
                   className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                  <li><a>Home</a></li>
+                  <li><NavLink to='/home'>Home</NavLink></li>
                   <li>
                     <a>All Campaign</a>
                   </li>
                   {
                         user?
                          <>
-                         <li><a>Add New Campaign</a></li>
-                         <li><a>My Donation</a></li>
+                          <li><NavLink to='/addCampaign'><a>Add New Campaign</a></NavLink></li>
+                         <li><NavLink to='/donation'><a>My Donation</a></NavLink></li>
+                         <li><NavLink to='/campaign'><a>My Campaign </a></NavLink></li>
                          </> 
                          : 
                          ""
@@ -41,19 +47,20 @@ const Navbar = () => {
                   
                 </ul>
               </div>
-              <a className="btn btn-ghost text-xl">daisyUI</a>
+              <a className="btn btn-ghost text-xl">Crowdh Founding Campaign</a>
             </div>
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1">
-                <li><a>Home</a></li>
+              <li><NavLink to='/home'>Home</NavLink></li>
                 <li>
                   <a >All Campaign</a>
                 </li>
                 {
                         user?
                          <>
-                         <li><a>Add New Campaign</a></li>
-                         <li><a>My Donation</a></li>
+                         <li><NavLink to='/addCampaign'><a>Add New Campaign</a></NavLink></li>
+                         <li><NavLink to='/donation'><a>My Donation</a></NavLink></li>
+                         <li><NavLink to='/campaign'><a>My Campaign </a></NavLink></li>
                          </> 
                          : 
                          ""
@@ -64,7 +71,7 @@ const Navbar = () => {
             {
                         user?
                          <>
-                         <a onClick={logout} className='btn'>Logout</a>
+                         <a onClick={handleLogout} className='btn'>Logout</a>
                          </> 
                          : 
                          <> <Link to='/login'><a className="btn">Login</a></Link></>

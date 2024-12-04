@@ -5,6 +5,13 @@ import Home from '../pages/Home';
 import MainLayout from '../layout/MainLayout';
 import Login from '../components/Login';
 import Register from '../components/Register';
+import RunningCampaign from '../components/RunningCampaign';
+import OurMission from '../components/OurMission';
+import Partner from '../components/Partner';
+import AddNewCampaign from '../pages/AddNewCampaign';
+import PrivateRoute from './PrivateRoute';
+import MyDonation from '../pages/MyDonation';
+import MyCampaign from '../pages/MyCampaign';
 
 const router = createBrowserRouter([
       {
@@ -14,7 +21,33 @@ const router = createBrowserRouter([
             children:[
                   {
                         path:'home',
-                        element:<Home></Home>
+                        element:<Home></Home>,
+                        children:[
+                              {
+                                    path:'running',
+                                    element:<RunningCampaign></RunningCampaign>
+                              },
+                              {
+                                    path:'mission',
+                                    element:<OurMission></OurMission>
+                              },
+                              {
+                                    path:'partner',
+                                    element:<Partner></Partner>
+                              }
+                        ]
+                  },
+                  {
+                        path:'addCampaign',
+                        element:<PrivateRoute><AddNewCampaign></AddNewCampaign></PrivateRoute>
+                  },
+                  {
+                        path:'donation',
+                        element:<PrivateRoute><MyDonation></MyDonation></PrivateRoute>
+                  },
+                  {
+                        path:'campaign',
+                        element:<PrivateRoute><MyCampaign></MyCampaign></PrivateRoute>
                   },
                   {
                         path:'login',
