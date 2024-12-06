@@ -17,11 +17,19 @@ const CampaignDetails = () => {
   }, [id]);
 
   const handleDonate = () => {
+    const currentDate = new Date();
+    const deadlineDate = new Date(campaign.deadline);
+
+    if (currentDate > deadlineDate) {
+      Swal.fire('Error!', 'The campaign deadline has passed. You cannot donate to this campaign.', 'error');
+      return;
+    }
+
     const donationData = {
       campaignId: id,
       userEmail: user.email,
       userName: user.displayName,
-      donationTime: new Date().toISOString()
+      donationTime: currentDate.toISOString()
     };
 
     fetch('http://localhost:5000/donate', {

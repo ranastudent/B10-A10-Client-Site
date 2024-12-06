@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext)
@@ -39,7 +40,8 @@ const Navbar = () => {
 
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Crowdh Founding Campaign</a>
+        <a className="btn btn-ghost text-xl">Crowdh Founding</a>
+       
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
