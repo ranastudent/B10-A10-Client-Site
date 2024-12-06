@@ -12,6 +12,7 @@ import AddNewCampaign from '../pages/AddNewCampaign';
 import PrivateRoute from './PrivateRoute';
 import MyDonation from '../pages/MyDonation';
 import MyCampaign from '../pages/MyCampaign';
+import AllCampaign from '../pages/AllCampaign';
 
 const router = createBrowserRouter([
       {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
                                     element:<Partner></Partner>
                               }
                         ]
+                  },
+                  {
+                        path:'allCampaign',
+                        element:<AllCampaign></AllCampaign>
                   },
                   {
                         path:'addCampaign',
