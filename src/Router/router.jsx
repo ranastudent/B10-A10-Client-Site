@@ -13,54 +13,58 @@ import PrivateRoute from './PrivateRoute';
 import MyDonation from '../pages/MyDonation';
 import MyCampaign from '../pages/MyCampaign';
 import AllCampaign from '../pages/AllCampaign';
+import CampaignDetails from '../components/CampaignDetails';
 
 const router = createBrowserRouter([
       {
             path: "/",
             element: <MainLayout></MainLayout>,
-           errorElement:<ErrorrPage></ErrorrPage>,
-            children:[
+            errorElement: <ErrorrPage></ErrorrPage>,
+            children: [
                   {
-                        path:'home',
-                        element:<Home></Home>,
-                        children:[
+                        path: 'home',
+                        element: <Home></Home>,
+                        children: [
                               {
-                                    path:'running',
-                                    element:<RunningCampaign></RunningCampaign>
+                                    path: 'running',
+                                    element: <RunningCampaign></RunningCampaign>
                               },
                               {
-                                    path:'mission',
-                                    element:<OurMission></OurMission>
+                                    path: 'mission',
+                                    element: <OurMission></OurMission>
                               },
                               {
-                                    path:'partner',
-                                    element:<Partner></Partner>
+                                    path: 'partner',
+                                    element: <Partner></Partner>
                               }
                         ]
                   },
                   {
-                        path:'allCampaign',
-                        element:<AllCampaign></AllCampaign>
+                        path: 'campaigns',
+                        element: <AllCampaign></AllCampaign>
                   },
                   {
-                        path:'addCampaign',
-                        element:<PrivateRoute><AddNewCampaign></AddNewCampaign></PrivateRoute>
+                         path: 'campaign/:id', 
+                         element: <PrivateRoute><CampaignDetails></CampaignDetails></PrivateRoute> },
+                  {
+                        path: 'addCampaign',
+                        element: <PrivateRoute><AddNewCampaign></AddNewCampaign></PrivateRoute>
                   },
                   {
-                        path:'donation',
-                        element:<PrivateRoute><MyDonation></MyDonation></PrivateRoute>
+                        path: 'donation',
+                        element: <PrivateRoute><MyDonation></MyDonation></PrivateRoute>
                   },
                   {
-                        path:'campaign',
-                        element:<PrivateRoute><MyCampaign></MyCampaign></PrivateRoute>
+                        path: 'campaign',
+                        element: <PrivateRoute><MyCampaign></MyCampaign></PrivateRoute>
                   },
                   {
-                        path:'login',
-                        element:<Login></Login>
+                        path: 'login',
+                        element: <Login></Login>
                   },
                   {
-                        path:'register',
-                        element:<Register></Register>
+                        path: 'register',
+                        element: <Register></Register>
                   },
             ]
       },

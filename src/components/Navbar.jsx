@@ -31,7 +31,7 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
             <li><NavLink to='/home'>Home</NavLink></li>
-            <li><NavLink to='/allCampaign'><a>All Campaign</a></NavLink></li>
+            <li><NavLink to='/campaigns'><a>All Campaign</a></NavLink></li>
             <li><NavLink to='/addCampaign'><a>Add New Campaign</a></NavLink></li>
             <li><NavLink to='/donation'><a>My Donation</a></NavLink></li>
             <li><NavLink to='/campaign'><a>My Campaign </a></NavLink></li>
@@ -44,7 +44,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li><NavLink to='/home'>Home</NavLink></li>
-          <li><NavLink to='/allCampaign'><a>All Campaign</a></NavLink></li>
+          <li><NavLink to='/campaigns'><a>All Campaign</a></NavLink></li>
           <li><NavLink to='/donation'><a>My Donation</a></NavLink></li>
           <li><NavLink to='/addCampaign'><a>Add New Campaign</a></NavLink></li>
           <li><NavLink to='/campaign'><a>My Campaign </a></NavLink></li>
