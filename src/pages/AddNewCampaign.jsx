@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-// import { AuthContext } from '../providers/AuthProvider';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../provider/AuthProvider';
 
@@ -24,7 +23,7 @@ const AddNewCampaign = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:5000/newCampaign', {
+    fetch('http://localhost:5000/addNewCampaign', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,7 +32,7 @@ const AddNewCampaign = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.insertedId) {
+        if (data.success) {
           Swal.fire('Success!', 'Campaign added successfully.', 'success');
           setFormData({
             image: '',

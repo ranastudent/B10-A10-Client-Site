@@ -30,13 +30,34 @@ const Register = () => {
 
     createUser(email, password, name, photoURL)
       .then(() => {
-        Swal.fire({
-          icon: "success",
-          title: "Welcome",
-          text: "Successfully Registered!",
-          footer: '<a href="#">Why do I have this issue?</a>'
-        });
-        navigate('/');
+        const userData = { email, password, name, photoURL };
+        fetch('http://localhost:5000/registerUser', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userData),
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              Swal.fire({
+                icon: "success",
+                title: "Welcome",
+                text: "Successfully Registered!",
+                footer: '<a href="#">Why do I have this issue?</a>'
+              });
+              navigate('/');
+            }
+          })
+          .catch((err) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something went wrong!",
+              footer: '<a href="#">Why do I have this issue?</a>'
+            });
+          });
       })
       .catch((err) => {
         Swal.fire({
