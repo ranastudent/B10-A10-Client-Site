@@ -1,8 +1,28 @@
-# React + Vite
+# Crowdfunding Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Crowdfunding Platform! This project aims to provide a seamless and efficient way for users to create, manage, and support crowdfunding campaigns.
 
-Currently, two official plugins are available:
+Live Site URL : b10-a10-auth-ce68e.firebaseapp.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Features
+
+=>User Registration and Authentication: Secure user registration and login functionality to ensure user data privacy and security.
+
+=>Create and Manage Campaigns: Users can create new crowdfunding campaigns, update existing ones, and manage their campaigns effortlessly.
+
+=>Donation Management: Supporters can donate to campaigns, and users can track their donations and see the impact they are making.
+
+=>Responsive Design: The platform is designed to be fully responsive, ensuring a seamless experience across all devices.
+
+=>Real-time Updates: Campaigns and donations are updated in real-time, providing users with the latest information and progress.
+
+
+# Technologies Used
+
+=>Frontend: React, Tailwind CSS
+
+=>Backend: Node.js, Express.js
+
+=>Database: MongoDB
+
+=>Hosting: Vercel
