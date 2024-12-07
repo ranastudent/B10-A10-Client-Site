@@ -4,7 +4,7 @@ import { AuthContext } from '../provider/AuthProvider';
 
 const AddNewCampaign = () => {
   const { user } = useContext(AuthContext);
-  console.log(user.displayName)
+
   const [formData, setFormData] = useState({
     image: '',
     title: '',

@@ -37,7 +37,7 @@ const AuthProvider = ({ children }) => {
                               })
                                     .then(response => response.json())
                                     .then(data => {
-                                          console.log('User information saved:', data);
+                                          
                                     })
                                     .catch(error => {
                                           console.error('Error saving user information:', error);
