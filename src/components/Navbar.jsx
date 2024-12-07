@@ -4,12 +4,14 @@ import { AuthContext } from '../provider/AuthProvider';
 import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
-  const { user, logout } = useContext(AuthContext)
-  const navigate = useNavigate()
+  const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    logout()
-    navigate('/')
-  }
+    logout();
+    navigate('/');
+  };
+
   return (
     <div className="navbar bg-[#DADBDD]">
       <div className="navbar-start">
@@ -36,12 +38,9 @@ const Navbar = () => {
             <li><NavLink to='/addCampaign'><a>Add New Campaign</a></NavLink></li>
             <li><NavLink to='/donation'><a>My Donation</a></NavLink></li>
             <li><NavLink to='/campaign'><a>My Campaign </a></NavLink></li>
-
-
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">Crowdh Founding</a>
-       
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -53,14 +52,22 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end space-x-2">
-        {
-          user ?
-            <>
-              <a onClick={handleLogout} className='btn'>Logout</a>
-            </>
-            :
-            <> <Link to='/login'><a className="btn">Login</a></Link></>
-        }
+        {user ? (
+          <>
+            <div className="flex items-center space-x-2">
+              <img
+                src={user.photoURL}
+                alt="User Avatar"
+                className="w-8 h-8 rounded-full"
+                data-tip={user.displayName}
+              />
+              <Tooltip />
+              <a onClick={handleLogout} className="btn">Logout</a>
+            </div>
+          </>
+        ) : (
+          <Link to='/login'><a className="btn">Login</a></Link>
+        )}
       </div>
     </div>
   );

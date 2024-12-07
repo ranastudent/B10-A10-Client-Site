@@ -5,7 +5,7 @@ const RunningCampaign = () => {
   const [campaigns, setCampaigns] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/runningCampaigns')
+    fetch('https://b10-a10-server-kappa.vercel.app/runningCampaigns')
       .then(response => response.json())
       .then(data => setCampaigns(data))
       .catch(error => console.error('Error fetching running campaigns:', error));

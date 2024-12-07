@@ -19,7 +19,7 @@ const UpdateCampaign = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/campaign/${id}`)
+    fetch(`https://b10-a10-server-kappa.vercel.app/campaign/${id}`)
       .then(response => response.json())
       .then(data => setFormData(data))
       .catch(error => console.error('Error fetching campaign details:', error));
@@ -32,7 +32,7 @@ const UpdateCampaign = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/updateCampaign/${id}`, {
+    fetch(`https://b10-a10-server-kappa.vercel.app/updateCampaign/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

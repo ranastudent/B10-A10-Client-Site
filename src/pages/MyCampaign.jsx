@@ -9,7 +9,7 @@ const MyCampaign = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/userCampaigns/${user.email}`)
+    fetch(`https://b10-a10-server-kappa.vercel.app/userCampaigns/${user.email}`)
       .then(response => response.json())
       .then(data => setCampaigns(data))
       .catch(error => console.error('Error fetching campaigns:', error));
@@ -30,7 +30,7 @@ const MyCampaign = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/deleteCampaign/${id}`, {
+        fetch(`https://b10-a10-server-kappa.vercel.app/deleteCampaign/${id}`, {
           method: 'DELETE',
         })
           .then(response => response.json())

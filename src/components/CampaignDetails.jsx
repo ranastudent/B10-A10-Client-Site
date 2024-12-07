@@ -10,7 +10,7 @@ const CampaignDetails = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/campaign/${id}`)
+    fetch(`https://b10-a10-server-kappa.vercel.app/campaign/${id}`)
       .then(response => response.json())
       .then(data => setCampaign(data))
       .catch(error => console.error('Error fetching campaign details:', error));
@@ -32,7 +32,7 @@ const CampaignDetails = () => {
       donationTime: currentDate.toISOString()
     };
 
-    fetch('http://localhost:5000/donate', {
+    fetch('https://b10-a10-server-kappa.vercel.app/donate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

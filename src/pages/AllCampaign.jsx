@@ -7,7 +7,7 @@ const AllCampaigns = () => {
   const [sortOrder, setSortOrder] = useState('asc');
 
   useEffect(() => {
-    fetch('http://localhost:5000/campaigns')
+    fetch('https://b10-a10-server-kappa.vercel.app/campaigns')
       .then(response => response.json())
       .then(data => setCampaigns(data))
       .catch(error => console.error('Error fetching campaigns:', error));
@@ -38,7 +38,7 @@ const AllCampaigns = () => {
         <Fade>
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-1/2">
-              <table className="min-w-full bg-white">
+              <table className="min-w-full bg-[#FFC0CB]">
                 <thead>
                   <tr>
                     <th className="py-2 px-4 border-b">Campaign Name</th>
@@ -56,7 +56,7 @@ const AllCampaigns = () => {
               </table>
             </div>
             <div className="w-full md:w-1/2 mt-4 md:mt-0 md:ml-4">
-              <table className="min-w-full bg-white">
+              <table className="min-w-full bg-[#FFC0CB]">
                 <thead>
                   <tr>
                     <th className="py-2 px-4 border-b">User Name</th>

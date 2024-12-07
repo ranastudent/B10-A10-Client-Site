@@ -31,7 +31,7 @@ const Register = () => {
     createUser(email, password, name, photoURL)
       .then(() => {
         const userData = { email, password, name, photoURL };
-        fetch('http://localhost:5000/registerUser', {
+        fetch('https://b10-a10-server-kappa.vercel.app/registerUser', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
