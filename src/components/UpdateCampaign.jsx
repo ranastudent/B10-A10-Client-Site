@@ -53,7 +53,7 @@ const UpdateCampaign = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-md mx-auto mt-10 p-6 bg-[#FFC0CB] rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-6">Update Campaign</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

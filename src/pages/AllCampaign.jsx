@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Fade } from 'react-awesome-reveal';
 import { Link } from 'react-router-dom';
 
 const AllCampaigns = () => {
@@ -25,7 +26,7 @@ const AllCampaigns = () => {
   };
 
   return (
-    <div className="container mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="container mx-auto mt-10 p-6 bg-[#FFC0CB] rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-6">All Campaigns</h2>
       <button
         onClick={sortCampaigns}
@@ -34,30 +35,50 @@ const AllCampaigns = () => {
         Sort by Minimum Donation ({sortOrder === 'asc' ? 'Ascending' : 'Descending'})
       </button>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white">
-          <thead>
-            <tr>
-              <th className="py-2 px-4 border-b">Campaign Name</th>
-              <th className="py-2 px-4 border-b">User Name</th>
-              <th className="py-2 px-4 border-b">User Email</th>
-              <th className="py-2 px-4 border-b">Minimum Donation</th>
-              <th className="py-2 px-4 border-b">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {campaigns.map((campaign) => (
-              <tr key={campaign._id}>
-                <td className="py-2 px-4 border-b">{campaign.title}</td>
-                <td className="py-2 px-4 border-b">{campaign.userName}</td>
-                <td className="py-2 px-4 border-b">{campaign.userEmail}</td>
-                <td className="py-2 px-4 border-b">{campaign.minDonation}</td>
-                <td className="py-2 px-4 border-b">
-                  <Link to={`/campaign/${campaign._id}`} className="btn btn-primary">See More</Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <Fade>
+          <div className="flex flex-col md:flex-row">
+            <div className="w-full md:w-1/2">
+              <table className="min-w-full bg-white">
+                <thead>
+                  <tr>
+                    <th className="py-2 px-4 border-b">Campaign Name</th>
+                    <th className="py-2 px-4 border-b">User Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {campaigns.map((campaign) => (
+                    <tr key={campaign._id}>
+                      <td className="py-2 px-4 border-b">{campaign.title}</td>
+                      <td className="py-2 px-4 border-b break-words w-48">{campaign.userEmail}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="w-full md:w-1/2 mt-4 md:mt-0 md:ml-4">
+              <table className="min-w-full bg-white">
+                <thead>
+                  <tr>
+                    <th className="py-2 px-4 border-b">User Name</th>
+                    <th className="py-2 px-4 border-b">Minimum Donation</th>
+                    <th className="py-2 px-4 border-b">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {campaigns.map((campaign) => (
+                    <tr key={campaign._id}>
+                      <td className="py-2 px-4 border-b">{campaign.userName}</td>
+                      <td className="py-2 px-4 border-b">{campaign.minDonation}</td>
+                      <td className="py-2 px-4 border-b">
+                        <Link to={`/campaign/${campaign._id}`} className="btn btn-primary">See More</Link>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </Fade>
       </div>
     </div>
   );

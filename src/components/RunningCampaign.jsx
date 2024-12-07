@@ -12,11 +12,11 @@ const RunningCampaign = () => {
   }, []);
 
   return (
-    <div className="container mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="container mx-auto mt-10 p-6 bg-[#FFC0CB] text-green-400 rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-6">Running Campaigns</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {campaigns.map((campaign) => (
-          <div key={campaign._id} className="bg-white p-4 rounded-lg shadow-md">
+          <div key={campaign._id} className="bg-[#FFC0CB] p-4 rounded-lg shadow-md">
             <img src={campaign.image} alt={campaign.title} className="w-full h-48 object-cover rounded-t-lg mb-4" />
             <h3 className="text-xl font-bold mb-2">{campaign.title}</h3>
             <p className="text-gray-700 mb-2"><strong>Type:</strong> {campaign.type}</p>

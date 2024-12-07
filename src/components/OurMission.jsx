@@ -3,7 +3,7 @@ import { Fade } from 'react-awesome-reveal';
 
 const OurMission = () => {
       return (
-            <div className="container mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+            <div className="container mx-auto mt-10 p-6 bg-[#FFC0CB] rounded-lg shadow-md">
                   <h2 className="text-2xl font-bold mb-6">Our Mission</h2>
                   <Fade>
                         <p>

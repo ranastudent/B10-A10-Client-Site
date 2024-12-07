@@ -2,7 +2,7 @@ import React from 'react';
 
 const Partner = () => {
   return (
-    <div className="container mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="container mx-auto mt-10 p-6 bg-[#FFC0CB] rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-6">Partner with Us</h2>
       <p>
         At [Your Crowdfunding Website Name], we believe in the power of collaboration and partnership. Our mission is to empower individuals and communities to bring their dreams to life, and we know that we can't do it alone. That's why we invite you to partner with us and join our global community of creators, innovators, and supporters.

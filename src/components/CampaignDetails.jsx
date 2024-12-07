@@ -57,7 +57,7 @@ const CampaignDetails = () => {
   }
 
   return (
-    <div className="container mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="container mx-auto mt-10 p-6 bg-[#FFC0CB] rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-6">{campaign.title}</h2>
       <p><strong>Type:</strong> {campaign.type}</p>
       <p><strong>Description:</strong> {campaign.description}</p>
