@@ -7,7 +7,7 @@ const AllCampaigns = () => {
   const [sortOrder, setSortOrder] = useState('asc');
 
   useEffect(() => {
-    fetch('https://b10-a10-server-kappa.vercel.app/campaigns')
+    fetch('https://b10-a10-n3.vercel.app/campaigns')
       .then(response => response.json())
       .then(data => setCampaigns(data))
       .catch(error => console.error('Error fetching campaigns:', error));
@@ -36,47 +36,19 @@ const AllCampaigns = () => {
       </button>
       <div className="overflow-x-auto">
         <Fade>
-          <div className="flex flex-col md:flex-row">
-            <div className="w-full md:w-1/2">
-              <table className="min-w-full bg-[#FFC0CB]">
-                <thead>
-                  <tr>
-                    <th className="py-2 px-4 border-b">Campaign Name</th>
-                    <th className="py-2 px-4 border-b">User Email</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {campaigns.map((campaign) => (
-                    <tr key={campaign._id}>
-                      <td className="py-2 px-4 border-b">{campaign.title}</td>
-                      <td className="py-2 px-4 border-b break-words w-48">{campaign.userEmail}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div className="w-full md:w-1/2 mt-4 md:mt-0 md:ml-4">
-              <table className="min-w-full bg-[#FFC0CB]">
-                <thead>
-                  <tr>
-                    <th className="py-2 px-4 border-b">User Name</th>
-                    <th className="py-2 px-4 border-b">Minimum Donation</th>
-                    <th className="py-2 px-4 border-b">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {campaigns.map((campaign) => (
-                    <tr key={campaign._id}>
-                      <td className="py-2 px-4 border-b">{campaign.userName}</td>
-                      <td className="py-2 px-4 border-b">{campaign.minDonation}</td>
-                      <td className="py-2 px-4 border-b">
-                        <Link to={`/campaign/${campaign._id}`} className="btn btn-primary">See More</Link>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {campaigns.map((campaign) => (
+              <div key={campaign._id} className="card bg-white shadow-md rounded-lg overflow-hidden">
+                <img src={campaign.image} alt={campaign.title} className="w-full h-48 object-cover" />
+                <div className="p-4">
+                  <h3 className="text-xl font-bold mb-2">{campaign.title}</h3>
+                  <p className="text-gray-700 mb-2">User: {campaign.userName}</p>
+                  <p className="text-gray-700 mb-2">Email: {campaign.userEmail}</p>
+                  <p className="text-gray-700 mb-2">Minimum Donation: {campaign.minDonation}</p>
+                  <Link to={`/campaign/${campaign._id}`} className="btn btn-primary">See More</Link>
+                </div>
+              </div>
+            ))}
           </div>
         </Fade>
       </div>

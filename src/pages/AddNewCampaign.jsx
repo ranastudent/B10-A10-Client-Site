@@ -23,7 +23,7 @@ const AddNewCampaign = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://b10-a10-server-kappa.vercel.app/addNewCampaign', {
+    fetch('https://b10-a10-n3.vercel.app/addNewCampaign', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

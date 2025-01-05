@@ -1,46 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const BannerSlider = () => {
-      return (
-            <div className="carousel w-full">
-  <div id="slide1" className="carousel-item relative w-full">
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-      className="w-full" />
-    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide4" className="btn btn-circle">❮</a>
-      <a href="#slide2" className="btn btn-circle">❯</a>
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const totalSlides = 4;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => {
+        if (prevSlide === totalSlides) {
+          return 1;
+        } else {
+          return prevSlide + 1;
+        }
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="carousel relative overflow-hidden">
+      <div className="carousel-inner flex transition-transform duration-1000" style={{ transform: `translateX(-${(currentSlide - 1) * 100}%)` }}>
+        <div id="slide1" className="carousel-item w-full h-72 flex-shrink-0">
+          <img
+            src="https://images.unsplash.com/photo-1534951009808-766178b47a4f?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div id="slide2" className="carousel-item w-full h-72 flex-shrink-0">
+          <img
+            src="https://images.unsplash.com/photo-1640160186315-838b53fcabc6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZmluYW5jZXxlbnwwfHwwfHx8MA%3D%3D"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div id="slide3" className="carousel-item w-full h-72 flex-shrink-0">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1681487769650-a0c3fbaed85a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmluYW5jZXxlbnwwfHwwfHx8MA%3D%3D"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div id="slide4" className="carousel-item w-full h-72 flex-shrink-0">
+          <img
+            src="https://images.unsplash.com/photo-1644363832001-0876e81f37a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGZpbmFuY2V8ZW58MHx8MHx8fDA%3D"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+      <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+        <button className="btn btn-circle" onClick={() => setCurrentSlide(currentSlide === 1 ? totalSlides : currentSlide - 1)}>❮</button>
+        <button className="btn btn-circle" onClick={() => setCurrentSlide(currentSlide === totalSlides ? 1 : currentSlide + 1)}>❯</button>
+      </div>
     </div>
-  </div>
-  <div id="slide2" className="carousel-item relative w-full">
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-      className="w-full" />
-    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide1" className="btn btn-circle">❮</a>
-      <a href="#slide3" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-  <div id="slide3" className="carousel-item relative w-full">
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-      className="w-full" />
-    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide2" className="btn btn-circle">❮</a>
-      <a href="#slide4" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-  <div id="slide4" className="carousel-item relative w-full">
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-      className="w-full" />
-    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-      <a href="#slide3" className="btn btn-circle">❮</a>
-      <a href="#slide1" className="btn btn-circle">❯</a>
-    </div>
-  </div>
-</div>
-      );
+  );
 };
 
 export default BannerSlider;

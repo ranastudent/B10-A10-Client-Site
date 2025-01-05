@@ -1,18 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleLogout = () => {
     logout();
     navigate('/');
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="navbar bg-[#DADBDD]">
+    <div className={`navbar fixed top-0 w-full transition-all duration-300 ${isScrolled ? 'bg-opacity-50 backdrop-blur-lg' : 'bg-[#DADBDD]'}`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -34,20 +50,28 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
             <li><NavLink to='/home'>Home</NavLink></li>
             <li><NavLink to='/campaigns'><a>All Campaign</a></NavLink></li>
-            <li><NavLink to='/addCampaign'><a>Add New Campaign</a></NavLink></li>
-            <li><NavLink to='/donation'><a>My Donation</a></NavLink></li>
-            <li><NavLink to='/campaign'><a>My Campaign </a></NavLink></li>
+            {user && (
+              <>
+                <li><NavLink to='/addCampaign'><a>Add New Campaign</a></NavLink></li>
+                <li><NavLink to='/donation'><a>My Donation</a></NavLink></li>
+                <li><NavLink to='/campaign'><a>My Campaign</a></NavLink></li>
+              </>
+            )}
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">Crowdh Founding</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li><NavLink to='/home'>Home</NavLink></li>
+          <li><NavLink to='/'>Home</NavLink></li>
           <li><NavLink to='/campaigns'><a>All Campaign</a></NavLink></li>
-          <li><NavLink to='/donation'><a>My Donation</a></NavLink></li>
-          <li><NavLink to='/addCampaign'><a>Add New Campaign</a></NavLink></li>
-          <li><NavLink to='/campaign'><a>My Campaign </a></NavLink></li>
+          {user && (
+            <>
+              <li><NavLink to='/addCampaign'><a>Add New Campaign</a></NavLink></li>
+              <li><NavLink to='/donation'><a>My Donation</a></NavLink></li>
+              <li><NavLink to='/campaign'><a>My Campaign</a></NavLink></li>
+            </>
+          )}
         </ul>
       </div>
       <div className="navbar-end space-x-2">

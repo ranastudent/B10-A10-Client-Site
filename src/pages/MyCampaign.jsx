@@ -9,7 +9,7 @@ const MyCampaign = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://b10-a10-server-kappa.vercel.app/userCampaigns/${user.email}`)
+    fetch(`https://b10-a10-n3.vercel.app/userCampaigns/${user.email}`)
       .then(response => response.json())
       .then(data => setCampaigns(data))
       .catch(error => console.error('Error fetching campaigns:', error));
@@ -30,7 +30,7 @@ const MyCampaign = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://b10-a10-server-kappa.vercel.app/deleteCampaign/${id}`, {
+        fetch(`https://b10-a10-n3.vercel.app/deleteCampaign/${id}`, {
           method: 'DELETE',
         })
           .then(response => response.json())
@@ -102,7 +102,7 @@ const MyCampaign = () => {
                     <td className="py-2 px-4 border-b">
                       <button
                         onClick={() => handleUpdate(campaign._id)}
-                        className="bg-blue-500 text-white py-1 px-3 rounded mr-2"
+                        className="bg-blue-500 mb-6 text-white py-1 px-3 rounded mr-2"
                       >
                         Update
                       </button>

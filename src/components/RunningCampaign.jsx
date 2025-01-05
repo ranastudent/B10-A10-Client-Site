@@ -5,7 +5,7 @@ const RunningCampaign = () => {
   const [campaigns, setCampaigns] = useState([]);
 
   useEffect(() => {
-    fetch('https://b10-a10-server-kappa.vercel.app/runningCampaigns')
+    fetch('https://b10-a10-n3.vercel.app/runningCampaigns')
       .then(response => response.json())
       .then(data => setCampaigns(data))
       .catch(error => console.error('Error fetching running campaigns:', error));
@@ -14,7 +14,7 @@ const RunningCampaign = () => {
   return (
     <div className="container mx-auto mt-10 p-6 bg-[#FFC0CB] text-green-400 rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-6">Running Campaigns</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6">
         {campaigns.map((campaign) => (
           <div key={campaign._id} className="bg-[#FFC0CB] p-4 rounded-lg shadow-md">
             <img src={campaign.image} alt={campaign.title} className="w-full h-48 object-cover rounded-t-lg mb-4" />

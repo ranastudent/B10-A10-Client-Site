@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import Lottie from 'react-lottie';
+import animationData from '../../public/Animation - 1733838028911 (1).json';
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -31,7 +33,7 @@ const Register = () => {
     createUser(email, password, name, photoURL)
       .then(() => {
         const userData = { email, password, name, photoURL };
-        fetch('https://b10-a10-server-kappa.vercel.app/registerUser', {
+        fetch('https://b10-a10-n3.vercel.app/registerUser', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -68,9 +70,20 @@ const Register = () => {
         });
       });
   };
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-[#FFC0CB] rounded-lg shadow-md">
+
+
+    <div className="max-w-md mx-auto p-6 bg-[#FFC0CB] rounded-lg shadow-md">
+      <Lottie options={defaultOptions} height={200} width={200} />
       <h2 className="text-2xl font-bold mb-6">Register</h2>
       <form onSubmit={handleLogin}>
         <div className="mb-4">
@@ -100,6 +113,7 @@ const Register = () => {
       </form>
       <p>Already Registered? <Link to='/login' className='text-red-700'>Login</Link></p>
     </div>
+
   );
 };
 

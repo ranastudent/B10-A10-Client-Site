@@ -1,0 +1,42 @@
+.typewriter-container {
+      position: relative;
+      overflow: hidden;
+      height: 50px; /* Adjust the height as needed */
+    }
+    
+    .typewriter {
+      display: inline-block;
+      white-space: nowrap;
+      animation: typing 10s steps(40, end), blink-caret 0.75s step-end infinite, vanish 10s steps(40, end) 10s infinite;
+    }
+    
+    .typewriter span {
+      display: inline-block;
+      animation: slide-in 10s linear infinite, slide-out 10s linear infinite 10s;
+    }
+    
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: black; }
+    }
+    
+    @keyframes slide-in {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+    }
+    
+    @keyframes slide-out {
+      from { transform: translateX(0); }
+      to { transform: translateX(100%); }
+    }
+    
+    @keyframes vanish {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+    

@@ -6,7 +6,7 @@ const MyDonation = () => {
   const [donations, setDonations] = useState([]);
 
   useEffect(() => {
-    fetch(`https://b10-a10-server-kappa.vercel.app/donations/${user.email}`)
+    fetch(`https://b10-a10-n3.vercel.app/donations/${user.email}`)
       .then(response => response.json())
       .then(data => setDonations(data))
       .catch(error => console.error('Error fetching donations:', error));
@@ -15,7 +15,7 @@ const MyDonation = () => {
   return (
     <div className="container mx-auto mt-10 p-6 bg-[#FFC0CB] rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-6">My Donations</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {donations.map((donation) => (
           <div key={donation._id} className="bg-[#FFC0CB] p-4 rounded-lg shadow-md">
             <img src={user.photoURL} alt="User" className="w-16 h-16 rounded-full mx-auto mb-4" />

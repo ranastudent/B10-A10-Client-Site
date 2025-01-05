@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
                                     loginTime: new Date().toISOString()
                               };
 
-                              fetch('https://b10-a10-server-kappa.vercel.app/users', {
+                              fetch('https://b10-a10-n3.vercel.app/users', {
                                     method: 'POST',
                                     headers: {
                                           'Content-Type': 'application/json',
