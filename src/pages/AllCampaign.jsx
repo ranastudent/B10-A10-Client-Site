@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Fade } from 'react-awesome-reveal';
+
 import { Link } from 'react-router-dom';
 
 const AllCampaigns = () => {
@@ -26,7 +26,7 @@ const AllCampaigns = () => {
   };
 
   return (
-    <div className="container mx-auto mt-10 p-6 bg-[#FFC0CB] rounded-lg shadow-md">
+    <div className="mx-auto mt-10 p-6 bg-[#FFC0CB] rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-6">All Campaigns</h2>
       <button
         onClick={sortCampaigns}
@@ -35,10 +35,10 @@ const AllCampaigns = () => {
         Sort by Minimum Donation ({sortOrder === 'asc' ? 'Ascending' : 'Descending'})
       </button>
       <div className="overflow-x-auto">
-        <Fade>
+        
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {campaigns.map((campaign) => (
-              <div key={campaign._id} className="card bg-white shadow-md rounded-lg overflow-hidden">
+              <div key={campaign._id} className="bg-white rounded-lg">
                 <img src={campaign.image} alt={campaign.title} className="w-full h-48 object-cover" />
                 <div className="p-4">
                   <h3 className="text-xl font-bold mb-2">{campaign.title}</h3>
@@ -50,7 +50,7 @@ const AllCampaigns = () => {
               </div>
             ))}
           </div>
-        </Fade>
+        
       </div>
     </div>
   );
