@@ -1,4 +1,4 @@
-<img height="800" src="https://i.ibb.co.com/RkvMYqgW/B10A10p1.png" />
+<img height="800" src="https://i.ibb.co.com/RkvMYqgW/B10A10p1.png"/>
 # Crowdfunding Platform
 
 Welcome to the Crowdfunding Platform! This project aims to provide a seamless and efficient way for users to create, manage, and support crowdfunding campaigns.
