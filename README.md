@@ -1,3 +1,4 @@
+
 <img height="800" src="https://i.ibb.co.com/RkvMYqgW/B10A10p1.png" alt="Crowdfunding Platform Screenshot" />
 
 # Crowdfunding Platform
@@ -29,3 +30,47 @@ To run this project locally, follow these steps:
    ```bash
    git clone https://github.com/your-repo/crowdfunding-platform.git
    cd crowdfunding-platform
+   ```
+
+2. **Install Dependencies**:
+   Navigate to both the frontend and backend directories and install the required dependencies.
+   
+   Frontend:
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+   Backend:
+   ```bash
+   cd backend
+   npm install
+   ```
+
+3. **Set Up Environment Variables**:
+   Create a `.env` file in the `backend` directory and add the following environment variables:
+   ```plaintext
+   MONGODB_URI=your_mongodb_connection_string
+   PORT=5000
+   JWT_SECRET=your_jwt_secret
+   ```
+
+4. **Run the Backend Server**:
+   ```bash
+   cd backend
+   npm start
+   ```
+
+   The backend server will start running on `http://localhost:5000`.
+
+5. **Run the Frontend Server**:
+   Open a new terminal window and navigate to the `frontend` directory:
+   ```bash
+   cd frontend
+   npm start
+   ```
+
+   The frontend server will start running on `http://localhost:3000`.
+
+6. **Access the Application**:
+   Open your web browser and go to `http://localhost:3000` to see the application in action.
