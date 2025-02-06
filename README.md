@@ -1,10 +1,10 @@
-<img height="800" src="https://i.ibb.co.com/RkvMYqgW/B10A10p1.png" alt="Crowdfunding Platform Screenshot" />
+<img height="800" src="https://i.ibb.co/RkvMYqg/B10A10p1.png" alt="Crowdfunding Platform Screenshot" />
 
 # Crowdfunding Platform
 
 Welcome to the Crowdfunding Platform! This project aims to provide a seamless and efficient way for users to create, manage, and support crowdfunding campaigns.
 
-Live Site URL : [b10-a10-auth-ce68e.firebaseapp.com](https://b10-a10-auth-ce68e.firebaseapp.com)
+Live Site URL: [b10-a10-auth-ce68e.firebaseapp.com](https://b10-a10-auth-ce68e.firebaseapp.com)
 
 # Features
 
@@ -20,3 +20,12 @@ Live Site URL : [b10-a10-auth-ce68e.firebaseapp.com](https://b10-a10-auth-ce68e.
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **Hosting**: Vercel
+
+# How to Run the Project Locally
+
+To run this project locally, follow these steps:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-repo/crowdfunding-platform.git
+   cd crowdfunding-platform
