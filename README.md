@@ -1,4 +1,4 @@
-<img height="800" src="https://i.ibb.co/RkvMYqg/B10A10p1.png" alt="Crowdfunding Platform Screenshot" />
+<img height="800" src="https://i.ibb.co.com/RkvMYqgW/B10A10p1.png" alt="Crowdfunding Platform Screenshot" />
 
 # Crowdfunding Platform
 
